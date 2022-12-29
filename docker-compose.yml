@@ -8,6 +8,7 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
   web:
+    user: 1000:1000
     build: .
     image: rails-on-docker:1.4.0
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -22,7 +23,7 @@ services:
       - HISTFILE=/usr/src/app/.dockerdev/.bash_history
       - MALLOC_ARENA_MAX=2
     volumes:
-      - .:/usr/src/app/:cached
+      - .:/usr/src/app/
       - bundle:/usr/local/bundle
       - rails_cache:/usr/src/app/tmp/cache
       - node_modules:/usr/src/app/node_modules
@@ -30,11 +31,12 @@ services:
       - db
 
   webpack:
+    user: 1000:1000
     build: .
     image: rails-on-docker:1.4.0
     command: yarn build --watch
     volumes:
-      - .:/usr/src/app:cached
+      - .:/usr/src/app
       - bundle:/usr/local/bundle
       - node_modules:/usr/src/app/node_modules
 
