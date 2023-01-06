@@ -9,10 +9,10 @@
 require 'faker'
 
 100.times do
-  customer = Customer.create!(name: Faker::Company.name)
+  customer = Business.create!(name: Faker::Company.name)
 
   20.times do
-    job = Job.create!(customer: customer, name: Faker::Educator.university)
+    job = Job.create!(business: customer, name: Faker::Educator.university)
     invoices = [1, 2, 3].map { |_i| Invoice.create!(job: job, number: Faker::Number.number(digits: 5), due_date: Faker::Date.forward(days: 90), status: ["paid", "unpaid", "draft"]) }
 
     50.times do
