@@ -36,8 +36,9 @@ services:
     image: rails-on-docker:1.4.0
     command: yarn build --watch
     volumes:
-      - .:/usr/src/app
+      - .:/usr/src/app/
       - bundle:/usr/local/bundle
+      - rails_cache:/usr/src/app/tmp/cache
       - node_modules:/usr/src/app/node_modules
 
 volumes:
