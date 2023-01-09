@@ -1,3 +1,3 @@
 class Job < ApplicationRecord
-  belongs_to :business
+  belongs_to :customer, class_name: "Business"
 end

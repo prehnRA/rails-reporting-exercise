@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2023_01_06_184548) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "business", null: false
+    t.bigint "business_id", null: false
   end
 
   create_table "jobs", force: :cascade do |t|

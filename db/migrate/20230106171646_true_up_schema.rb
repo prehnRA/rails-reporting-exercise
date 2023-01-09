@@ -4,7 +4,7 @@ class TrueUpSchema < ActiveRecord::Migration[6.1]
     remove_column :invoices, :job_id
 
     change_table :invoices do |t|
-      t.column :business, :bigint, null: false
+      t.column :business_id, :bigint, null: false
     end
 
     change_table :line_items do |t|
