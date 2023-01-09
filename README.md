@@ -5,52 +5,25 @@ has a db seed script for generating example data.
 
 ## Requirements
 
-Please ensure you are using Docker Compose V2. This project relies on the `docker compose` command, not the previous `docker-compose` standalone program.
+- ruby
+- rails
+- postgres
 
-https://docs.docker.com/compose/#compose-v2-and-the-new-docker-compose-command
+## Setup
 
-Check your docker compose version with:
 ```
-% docker compose version
-Docker Compose version v2.10.2
-```
-
-## Initial setup
-```
-cp .env.example .env
-docker compose build
-docker compose run --rm web bin/rails db:setup
+bundle install
+rails db:prepare
 ```
 
-## Running the Rails app
+## Running the server
+
 ```
-docker compose up
+rails s
 ```
 
-## Running the Rails console
-When the app is already running with `docker compose` up, attach to the container:
-```
-docker compose exec web bin/rails c
-```
+## Watching & compiling the assets for JS dev
 
-When no container running yet, start up a new one:
 ```
-docker compose run --rm web bin/rails c
-```
-
-## Running tests
-```
-docker compose run --rm web bundle exec rspec
-```
-
-## Updating gems
-```
-docker compose run --rm web bundle update
-docker compose up --build
-```
-
-## Updating Yarn packages
-```
-docker compose run --rm web yarn upgrade
-docker compose up --build
+yarn build --watch
 ```

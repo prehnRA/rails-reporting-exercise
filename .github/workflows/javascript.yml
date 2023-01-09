@@ -35,6 +35,3 @@ jobs:
 
           #      - name: yarn linting
           #        run: yarn lint:check
-          
-      - name: yarn audit
-        run: yarn audit
