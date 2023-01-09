@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.11'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'faker'
+gem 'tty-progressbar'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
